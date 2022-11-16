@@ -3,4 +3,6 @@ datasets==1.6.2
 spacy==2.3.3
 nltk==3.6.1
 tqdm==4.49.0
+transformers==4.10.0
+torchmetrics==0.6.0
 rouge-score
