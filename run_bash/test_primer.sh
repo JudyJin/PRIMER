@@ -24,7 +24,7 @@ MODEL_NAME="PRIMER"
 MODEL_PATH="PRIMER_model"
 nohup python primer_main.py  \
                 --batch_size 16 \
-                --gpus 1  \
+                --gpus 0  \
                 --mode test \
                 --model_path ../models/$MODEL_NAME/  \
                 --dataset_name ${DATA_NAME} \
