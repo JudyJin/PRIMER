@@ -586,9 +586,20 @@ def test(args):
         with open(args.data_path + "test.txt", "r") as of:
             all_lines = of.readlines()
         dataset = [json.loads(l) for l in all_lines]
+        dataset = dataset[:20]
         test_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "test", args.num_workers, False
         )
+    elif args.dataset_name == "crd3":
+        with open(args.data_path + "test.json", "r") as json_file:
+            dataset = json.load(json_file)
+        # dataset = dataset[:20]
+        test_dataloader = get_dataloader_summ(
+            args, dataset, model.tokenizer, "test", args.num_workers, False
+        )
+        # for data in test_dataloader:
+        #     print(data)
+        #     break
 
     # test
     trainer.test(model, test_dataloader)

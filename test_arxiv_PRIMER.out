@@ -1,0 +1,35 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+Using native 16bit precision.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Namespace(acc_batch=4, accelerator=None, accum_data_per_step=16, adafactor=False, applyTriblck=False, attention_dropout=0.1, attention_mode='sliding_chunks', attention_window=512, batch_size=4, beam_size=1, ckpt_path=None, compute_rouge=False, data_path='../dataset/arxiv', dataset_name='arxiv', debug_mode=False, eval_steps=2500, fewshot=False, fix_lr=False, fp32=False, gpus=1, grad_ckpt=False, join_method='concat_start_wdoc_global', label_smoothing=0.0, length_penalty=1.0, limit_test_batches=None, limit_valid_batches=None, lr=3e-05, mask_num=0, max_length_input=4096, max_length_tgt=300, min_length_tgt=0, mode='test', model_path='../models/PRIMER/', num_train_data=-1, num_workers=4, primer_path='../PRIMER_model', progress_bar_refresh_rate=50, rand_seed=0, remove_masks=False, report_steps=50, resume_ckpt=None, saveRouge=False, saveTopK=3, test_batch_size=-1, test_imediate=False, tokenizer='facebook/bart-base', total_steps=50000, val_check_interval=1.0, warmup_steps=1000)
+Testing: 0it [00:00, ?it/s]INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+Testing: 100%|██████████| 5/5 [05:12<00:00, 62.59s/it]Validation Result at Step 0
+Rouge-1 r score: 0.390958, Rouge-1 p score: 0.276716, Rouge-1 f-score: 0.303589
+Rouge-2 r score: 0.101593, Rouge-2 p score: 0.074556, Rouge-2 f-score: 0.079829
+Rouge-L r score: 0.220206, Rouge-L p score: 0.152340, Rouge-L f-score: 0.166970
+Rouge-Lsum r score: 0.220206, Rouge-Lsum p score: 0.152340,             Rouge-Lsum f-score: 0.166970
+Testing: 100%|██████████| 5/5 [05:13<00:00, 62.61s/it]
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'avgr': 0.18346278607932645, 'tloss': 2.9414114952087402}
+--------------------------------------------------------------------------------

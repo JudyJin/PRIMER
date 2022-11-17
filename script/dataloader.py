@@ -80,6 +80,9 @@ class SummarizationDataset(Dataset):
             elif self.dataset_name == "wikisum":
                 all_docs = entry["text"]
                 tgt = entry["tgt"]
+            elif self.dataset_name == "crd3":
+                all_docs = entry["conversation"]
+                tgt = entry["summary"]
             if self.join_method == "plain_concat":
                 src = "\n".join(all_docs)
                 input_ids = self.tokenizer.encode(
@@ -505,8 +508,19 @@ def get_dataloader_summ(
             }
             for single_data in hf_datasets
         ]
+    
+    elif args.dataset_name == "crd3":
+        d = [
+            {
+                "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                "summary": single_data['CHUNK'],
+            }
+            for single_data in hf_datasets
+        ]
+
     else:
         d = hf_datasets[split_name]
+
     dataset = SummarizationDataset(
         hf_dataset=d,
         dataset_name=args.dataset_name,

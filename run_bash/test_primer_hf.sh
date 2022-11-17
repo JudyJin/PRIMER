@@ -23,7 +23,7 @@ MODEL_NAME="PRIMER"
 MODEL_PATH="PRIMER_model"
 nohup python primer_hf_main.py  \
                 --batch_size 8 \
-                --gpus 1  \
+                --gpus 0  \
                 --mode test \
                 --model_path ../PRIMER_hf  \
                 --dataset_name ${DATA_NAME} \
