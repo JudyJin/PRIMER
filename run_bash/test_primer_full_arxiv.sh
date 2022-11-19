@@ -10,7 +10,7 @@ DATA_NAME="arxiv"
 MODEL_NAME="PRIMER_arxiv"
 MODEL_PATH="PRIMER_arxiv"
 nohup python primer_main.py  \
-                --batch_size 16 \
+                --batch_size 2 \
                 --gpus 1  \
                 --mode test \
                 --model_path ../models/$MODEL_NAME/  \

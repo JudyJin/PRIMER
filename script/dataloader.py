@@ -517,6 +517,13 @@ def get_dataloader_summ(
             }
             for single_data in hf_datasets
         ]
+        # d = [
+        #     {
+        #         "conversation": [" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+        #         "summary": single_data['CHUNK'],
+        #     }
+        #     for single_data in hf_datasets
+        # ]
 
     else:
         d = hf_datasets[split_name]

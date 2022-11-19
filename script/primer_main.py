@@ -27,6 +27,7 @@ from dataloader import (
 )
 import json
 from pathlib import Path
+import random
 
 
 def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=-100):
@@ -228,6 +229,9 @@ class PRIMERSummarizerLN(pl.LightningModule):
             idx = len(os.listdir(output_dir))
         result_batch = []
         for ref, pred in zip(gold_str, generated_str):
+            print(ref)
+            print(pred)
+            print("")
             if self.args.mode == "test":
                 with open(os.path.join(output_dir, "%d.txt" % (idx)), "w") as of:
                     of.write(pred)
@@ -532,6 +536,29 @@ def train(args):
         valid_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "validation", args.num_workers, False
         )
+    elif args.dataset_name == "crd3":
+        dataset = []
+        for file in os.listdir(args.data_path + "/train"):
+            if file.endswith(".json"):
+                with open(args.data_path + "/train/" + file, "r") as of:
+                    data = json.load(of)
+            dataset.extend(data)
+        dataset = dataset[: 100]
+        train_dataloader = get_dataloader_summ(
+            args, dataset, model.tokenizer, "train", args.num_workers, False
+        )
+        print("train data:", len(train_dataloader))
+        dataset = []
+        for file in os.listdir(args.data_path + "/val"):
+            if file.endswith(".json"):
+                with open(args.data_path + "/val/" + file, "r") as of:
+                    data = json.load(of)
+            dataset.extend(data)
+        dataset = dataset[: 100]
+        valid_dataloader = get_dataloader_summ(
+            args, dataset, model.tokenizer, "validation", args.num_workers, False
+        )
+        print("valid data:", len(valid_dataloader))
     trainer.fit(model, train_dataloader, valid_dataloader)
     if args.test_imediate:
         args.resume_ckpt = checkpoint_callback.best_model_path
@@ -586,17 +613,31 @@ def test(args):
         with open(args.data_path + "test.txt", "r") as of:
             all_lines = of.readlines()
         dataset = [json.loads(l) for l in all_lines]
-        dataset = dataset[:20]
+        random.shuffle(dataset)
+        dataset = dataset[: 50]
         test_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "test", args.num_workers, False
         )
     elif args.dataset_name == "crd3":
-        with open(args.data_path + "test.json", "r") as json_file:
-            dataset = json.load(json_file)
-        # dataset = dataset[:20]
+        dataset = []
+        for file in os.listdir(args.data_path + "/test"):
+            if file.endswith(".json"):
+                with open(args.data_path + "/test/" + file, "r") as of:
+                    data = json.load(of)
+            dataset.extend(data)
+        random.shuffle(dataset)
+        dataset = dataset[:50]
         test_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "test", args.num_workers, False
         )
+
+        print("test data:", len(test_dataloader))
+        # with open(args.data_path + "test.json", "r") as json_file:
+        #     dataset = json.load(json_file)
+        # # dataset = dataset[:20]
+        # test_dataloader = get_dataloader_summ(
+        #     args, dataset, model.tokenizer, "test", args.num_workers, False
+        # )
         # for data in test_dataloader:
         #     print(data)
         #     break

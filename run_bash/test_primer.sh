@@ -25,8 +25,10 @@ LENGTH_LIMIT=300
 # original PRIMER model
 MODEL_NAME="PRIMER"
 MODEL_PATH="PRIMER_model"
+# MODEL_NAME="PRIMER_arxiv"
+# MODEL_PATH="PRIMER_arxiv"
 nohup python primer_main.py  \
-                --batch_size 4 \
+                --batch_size 2 \
                 --gpus 1  \
                 --mode test \
                 --model_path ../models/$MODEL_NAME/  \
