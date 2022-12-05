@@ -8,7 +8,7 @@ import argparse
 from multiprocessing import Pool
 import numpy as np
 
-from led_summ.utils.compute_scores import (
+from compute_scores import (
     compute_scores,
     get_entities,
 )
@@ -17,6 +17,8 @@ from timeit import default_timer as timer
 from rouge_score import rouge_scorer
 import re
 import spacy
+import nltk
+nltk.download('punkt')
 
 
 def get_src_tgt_with_mask(
@@ -59,35 +61,68 @@ def get_src_tgt_with_mask(
     return src, tgt
 
 
+# def select_sent_with_entities(entities, all_docs, num_sent, metric):
+#     sent_plain = [s for doc_list in all_docs for s in doc_list]
+#     entity_info = {
+#         k: {"max_score": 0, "indice": -1} for k in entities.keys() if entities[k] > 1
+#     }
+    
+#     for i, sent in enumerate(sent_plain):
+#         for e in entity_info.keys():
+#             if e.lower() in sent["text"].lower():
+#                 if sent[metric] > entity_info[e]["max_score"]:
+#                     entity_info[e]["max_score"] = sent[metric]
+#                     entity_info[e]["indice"] = i
+#     sorted_entities = [
+#         k for k, v in sorted(entities.items(), key=lambda item: item[1]) if v > 1
+#     ][::-1]
+#     selected_sent = set()
+#     for k in sorted_entities:
+#         selected_sent.add(entity_info[k]["indice"])
+#         # stop when desired number of sentences are selected
+#         if len(selected_sent) >= num_sent:
+#             break
+#     # if entities are not enough
+#     if len(selected_sent) < num_sent:
+#         scores_flat = [s[metric] for s in sent_plain]
+#         greedy_indices = np.argsort(scores_flat)[::-1]
+#         for s in greedy_indices:
+#             if s not in selected_sent:
+#                 selected_sent.add(s)
+#                 if len(selected_sent) >= num_sent:
+#                     break
+#     return sorted(list(selected_sent))
+
 def select_sent_with_entities(entities, all_docs, num_sent, metric):
     sent_plain = [s for doc_list in all_docs for s in doc_list]
     entity_info = {
         k: {"max_score": 0, "indice": -1} for k in entities.keys() if entities[k] > 1
     }
+    global_sent_score_dict = dict()
     for i, sent in enumerate(sent_plain):
         for e in entity_info.keys():
             if e.lower() in sent["text"].lower():
-                if sent[metric] > entity_info[e]["max_score"]:
-                    entity_info[e]["max_score"] = sent[metric]
-                    entity_info[e]["indice"] = i
-    sorted_entities = [
-        k for k, v in sorted(entities.items(), key=lambda item: item[1]) if v > 1
-    ][::-1]
+                global_sent_score_dict[i] = global_sent_score_dict.get(i, 0) + sent[metric]
+                # if sent[metric] > entity_info[e]["max_score"]:
+                #     entity_info[e]["max_score"] = sent[metric]
+                #     entity_info[e]["indice"] = i
+    sorted_sent_scores = sorted(global_sent_score_dict.items(), key=lambda x:x[1])
+    # sorted_entities = [
+    #     k for k, v in sorted(entities.items(), key=lambda item: item[1]) if v > 1
+    # ][::-1]
     selected_sent = set()
-    for k in sorted_entities:
-        selected_sent.add(entity_info[k]["indice"])
-        # stop when desired number of sentences are selected
-        if len(selected_sent) >= num_sent:
-            break
-    # if entities are not enough
-    if len(selected_sent) < num_sent:
-        scores_flat = [s[metric] for s in sent_plain]
-        greedy_indices = np.argsort(scores_flat)[::-1]
-        for s in greedy_indices:
-            if s not in selected_sent:
-                selected_sent.add(s)
-                if len(selected_sent) >= num_sent:
-                    break
+    # for k in sorted_entities:
+    #     selected_sent.add(entity_info[k]["indice"])
+    #     # stop when desired number of sentences are selected
+    #     if len(selected_sent) >= num_sent:
+    #         break
+    # # if entities are not enough
+    # if len(selected_sent) < num_sent:
+    for (idx, score) in sorted_sent_scores:
+        if idx not in selected_sent:
+            selected_sent.add(idx)
+            if len(selected_sent) >= num_sent:
+                break
     return sorted(list(selected_sent))
 
 
