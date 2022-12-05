@@ -49,7 +49,7 @@ def get_src_tgt_with_mask(
             cur_idx += 1
 
     src = []
-    truncated_doc = " %s " % (tokenizer.convert_tokens_to_ids("<doc-sep>")).join(
+    truncated_doc = " %s " % (str(tokenizer.convert_tokens_to_ids("<doc-sep>"))).join(
         [" ".join(d) for d in truncated_doc]
     )
     truncated_doc += " %s" % (tokenizer.convert_tokens_to_ids("<doc-sep>"))
@@ -106,7 +106,8 @@ def select_sent_with_entities(entities, all_docs, num_sent, metric):
                 # if sent[metric] > entity_info[e]["max_score"]:
                 #     entity_info[e]["max_score"] = sent[metric]
                 #     entity_info[e]["indice"] = i
-    sorted_sent_scores = sorted(global_sent_score_dict.items(), key=lambda x:x[1])
+    sorted_sent_scores = sorted(global_sent_score_dict.items(), key=lambda x:x[1], reverse=True)
+    # print(num_sent, len(sorted_sent_scores), sorted_sent_scores)
     # sorted_entities = [
     #     k for k, v in sorted(entities.items(), key=lambda item: item[1]) if v > 1
     # ][::-1]
