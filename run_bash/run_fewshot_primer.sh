@@ -11,13 +11,14 @@ cd ../script
 # # wcep dataset
 # DATA_NAME="wcep"
 # # arxiv dataset
-DATA_NAME="arxiv"
+# DATA_NAME="arxiv"
 # crd3 dataset
 # DATA_NAME="crd3"
+DATA_NAME="crd3_noise"
 
 
 # original PRIMER model
-MODEL_NAME="PRIMER"
+MODEL_NAME="1"
 MODEL_PATH="PRIMER_model"
 
 #fewshot training for 10 examples
@@ -42,7 +43,7 @@ nohup python primer_main.py  \
                 --rand_seed ${RAND_SEED} \
                 --saveTopK 3 \
                 --test_imediate \
-                --test_batch_size 4 \
+                --test_batch_size 1 \
                 --fewshot \
                 --grad_ckpt \
         > ../fewshot_${DATA_NAME}_${MODEL_NAME}_${RAND_SEED}.out &

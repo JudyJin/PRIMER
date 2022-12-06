@@ -530,40 +530,42 @@ def get_dataloader_summ(
             for turn in single_data["TURNS"]:
                 character_set.add(",".join(turn["NAMES"]))
             character_set = list(character_set)
-
-            d += [
+            choice = random.choice([1,2,3,4])
+            if choice == 4:
+                d += [
+                    {
+                    "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                    "summary": single_data['CHUNK'],
+                }]
+            if choice == 1:
+                d += [
                 {
-                "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
-                "summary": single_data['CHUNK'],
-            },
-            {
-                "conversation": ["<MASK>: "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
-                "summary": single_data['CHUNK'],
-            },
-            {
-                "conversation": [random.choice(character_set)+": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
-                "summary": single_data['CHUNK'],
-            }
-            ]
-            conv = []
-            for turn in single_data["TURNS"]:
-                add_mask = random.choice([True, False])
-                utt= " ".join(turn["UTTERANCES"])
-                if add_mask:
+                    "conversation": ["<MASK>: "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                    "summary": single_data['CHUNK'],
+                }]
+            elif choice == 2:
+                d += [
+                {
+                    "conversation": [random.choice(character_set)+": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                    "summary": single_data['CHUNK'],
+                }
+                ]
+            elif choice == 3:
+                conv = []
+                for turn in single_data["TURNS"]:
+                    utt= " ".join(turn["UTTERANCES"])
                     total_len = len(utt)
                     num_1 = random.randint(0, total_len-1)
                     num_2 = random.randint(0, total_len-1)
                     min_num, max_num = min(num_1, num_2), max(num_1, num_2)
                     conv += [",".join(turn["NAMES"])+ ": "+ utt[:min_num]+"<MASK>"+utt[max_num:]]
-                else:
-                    conv += [",".join(turn["NAMES"])+ ": "+ utt]
-            d += [
-                {
-                "conversation": conv,
-                "summary": single_data['CHUNK'],
-            }
-            ]
-        print(d)
+                d += [
+                    {
+                    "conversation": conv,
+                    "summary": single_data['CHUNK'],
+                }
+                ]
+        # print(d)
 
         # d = [
         #     {

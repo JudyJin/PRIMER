@@ -28,6 +28,11 @@ from dataloader import (
 import json
 from pathlib import Path
 import random
+import gc
+
+gc.collect()
+
+torch.cuda.empty_cache()
 
 
 def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=-100):
@@ -545,25 +550,29 @@ def train(args):
         valid_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "validation", args.num_workers, False
         )
-    elif args.dataset_name == "crd3":
+    elif args.dataset_name == "crd3" or args.dataset_name == 'crd3_noise':
         dataset = []
+        random.seed(4)
         for file in os.listdir(args.data_path + "/train"):
             if file.endswith(".json"):
                 with open(args.data_path + "/train/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
+        random.shuffle(dataset)
         dataset = dataset[: 100]
         train_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "train", args.num_workers, False
         )
         print("train data:", len(train_dataloader))
         dataset = []
-        for file in os.listdir(args.data_path + "/val"):
+        for file in os.listdir(args.data_path + "/test"):
             if file.endswith(".json"):
-                with open(args.data_path + "/val/" + file, "r") as of:
+                with open(args.data_path + "/test/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
-        dataset = dataset[: 100]
+        random.seed(4)
+        random.shuffle(dataset)
+        dataset = dataset[: 10]
         valid_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "validation", args.num_workers, False
         )
@@ -643,6 +652,8 @@ def test(args):
         print("test data:", len(test_dataloader))
     elif args.dataset_name == "crd3_noise":
         args.introduceNoise = True
+        random.seed(4)
+        
         dataset = []
         for file in os.listdir(args.data_path + "/test"):
             if file.endswith(".json"):
