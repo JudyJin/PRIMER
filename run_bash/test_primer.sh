@@ -18,12 +18,12 @@ cd ../script
 # DATA_NAME="arxiv"
 # LENGTH_LIMIT=300
 # crd3 dataset
-DATA_NAME="crd3"
+DATA_NAME="crd3_noise"
 LENGTH_LIMIT=300
 
 
 # original PRIMER model
-MODEL_NAME="PRIMER"
+MODEL_NAME="1"
 MODEL_PATH="PRIMER_model"
 # MODEL_NAME="PRIMER_arxiv"
 # MODEL_PATH="PRIMER_arxiv"

@@ -7,7 +7,7 @@ import os
 from nltk.tokenize import sent_tokenize
 import re
 import sys
-
+import math
 
 class SummarizationDataset(Dataset):
     def __init__(
@@ -80,7 +80,7 @@ class SummarizationDataset(Dataset):
             elif self.dataset_name == "wikisum":
                 all_docs = entry["text"]
                 tgt = entry["tgt"]
-            elif self.dataset_name == "crd3":
+            elif self.dataset_name == "crd3" or self.dataset_name == "crd3_noise":
                 all_docs = entry["conversation"]
                 tgt = entry["summary"]
             if self.join_method == "plain_concat":
@@ -310,8 +310,13 @@ class SummarizationIterDataset(IterableDataset):
         self.start = 0
         self.end = len(self._input_files)
         self.use_ddp = use_ddp
-        if join_method == "concat_start_wdoc_global":
-            self.docsep_token_id = self.tokenizer.additional_special_tokens_ids[0]
+        # if join_method == "concat_start_wdoc_global":
+        #     self.docsep_token_id = self.tokenizer.additional_special_tokens_ids[0]
+        if dataset_name == 'crd3_noise':
+            self.tokenizer.add_special_tokens(
+                {"additional_special_tokens": ["<MASK>"]}
+            )
+            self.mask_token_id = self.tokenizer.additional_special_tokens_ids[0]
         self.mask_num = mask_num
         self.dataset_type = dataset_type
 
@@ -517,6 +522,49 @@ def get_dataloader_summ(
             }
             for single_data in hf_datasets
         ]
+    elif args.dataset_name == "crd3_noise":
+        d = []
+        for single_data in hf_datasets:
+            character_set = set()
+
+            for turn in single_data["TURNS"]:
+                character_set.add(",".join(turn["NAMES"]))
+            character_set = list(character_set)
+
+            d += [
+                {
+                "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                "summary": single_data['CHUNK'],
+            },
+            {
+                "conversation": ["<MASK>: "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                "summary": single_data['CHUNK'],
+            },
+            {
+                "conversation": [random.choice(character_set)+": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                "summary": single_data['CHUNK'],
+            }
+            ]
+            conv = []
+            for turn in single_data["TURNS"]:
+                add_mask = random.choice([True, False])
+                utt= " ".join(turn["UTTERANCES"])
+                if add_mask:
+                    total_len = len(utt)
+                    num_1 = random.randint(0, total_len-1)
+                    num_2 = random.randint(0, total_len-1)
+                    min_num, max_num = min(num_1, num_2), max(num_1, num_2)
+                    conv += [",".join(turn["NAMES"])+ ": "+ utt[:min_num]+"<MASK>"+utt[max_num:]]
+                else:
+                    conv += [",".join(turn["NAMES"])+ ": "+ utt]
+            d += [
+                {
+                "conversation": conv,
+                "summary": single_data['CHUNK'],
+            }
+            ]
+        print(d)
+
         # d = [
         #     {
         #         "conversation": [" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],

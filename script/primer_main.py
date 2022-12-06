@@ -76,6 +76,13 @@ class PRIMERSummarizerLN(pl.LightningModule):
             )
             self.docsep_token_id = self.tokenizer.additional_special_tokens_ids[0]
             self.model.resize_token_embeddings(len(self.tokenizer))
+        if args.introduceNoise:
+            # The special token is added after each document in the pre-processing step.
+            self.tokenizer.add_special_tokens(
+                {"additional_special_tokens": ["<MASK>"]}
+            )
+            self.mask_token_id = self.tokenizer.additional_special_tokens_ids[0]
+            self.model.resize_token_embeddings(len(self.tokenizer))
 
     def _prepare_input(self, input_ids):
         attention_mask = torch.ones(
@@ -326,8 +333,10 @@ class PRIMERSummarizerLN(pl.LightningModule):
     def validation_epoch_end(self, outputs):
         for p in self.model.parameters():
             p.requires_grad = True
-
-        vloss = torch.stack([x["vloss"] for x in outputs]).mean()
+        if len(outputs)>0:
+            vloss = torch.stack([x["vloss"] for x in outputs]).mean()
+        else:
+            vloss = 0
         self.log("vloss", vloss, sync_dist=True if self.use_ddp else False)
         if self.args.compute_rouge:
             names, metrics, avgr = self.compute_rouge_all(outputs, output_file="valid")
@@ -632,6 +641,21 @@ def test(args):
         )
 
         print("test data:", len(test_dataloader))
+    elif args.dataset_name == "crd3_noise":
+        args.introduceNoise = True
+        dataset = []
+        for file in os.listdir(args.data_path + "/test"):
+            if file.endswith(".json"):
+                with open(args.data_path + "/test/" + file, "r") as of:
+                    data = json.load(of)
+            dataset.extend(data)
+        random.shuffle(dataset)
+        dataset = dataset[:50]
+        test_dataloader = get_dataloader_summ(
+            args, dataset, model.tokenizer, "test", args.num_workers, False
+        )
+
+        print("test data:", len(test_dataloader))
         # with open(args.data_path + "test.json", "r") as json_file:
         #     dataset = json.load(json_file)
         # # dataset = dataset[:20]
@@ -826,6 +850,11 @@ if __name__ == "__main__":
         "--applyTriblck",
         action="store_true",
         help="whether apply trigram block in the evaluation phase",
+    )
+    parser.add_argument(
+        "--introduceNoise",
+        type=bool,
+        default=False,
     )
 
     args = parser.parse_args()  # Get pad token id
