@@ -552,12 +552,13 @@ def train(args):
         )
     elif args.dataset_name == "crd3" or args.dataset_name == 'crd3_noise':
         dataset = []
-        random.seed(4)
+        
         for file in os.listdir(args.data_path + "/train"):
             if file.endswith(".json"):
                 with open(args.data_path + "/train/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
+        random.seed(4)
         random.shuffle(dataset)
         dataset = dataset[: 100]
         train_dataloader = get_dataloader_summ(
@@ -565,14 +566,14 @@ def train(args):
         )
         print("train data:", len(train_dataloader))
         dataset = []
-        for file in os.listdir(args.data_path + "/test"):
+        for file in os.listdir(args.data_path + "/val"):
             if file.endswith(".json"):
-                with open(args.data_path + "/test/" + file, "r") as of:
+                with open(args.data_path + "/val/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
         random.seed(4)
         random.shuffle(dataset)
-        dataset = dataset[: 10]
+        dataset = dataset[: 50]
         valid_dataloader = get_dataloader_summ(
             args, dataset, model.tokenizer, "validation", args.num_workers, False
         )
@@ -643,6 +644,7 @@ def test(args):
                 with open(args.data_path + "/test/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
+        random.seed(4)
         random.shuffle(dataset)
         dataset = dataset[:50]
         test_dataloader = get_dataloader_summ(
@@ -652,14 +654,13 @@ def test(args):
         print("test data:", len(test_dataloader))
     elif args.dataset_name == "crd3_noise":
         args.introduceNoise = True
-        random.seed(4)
-        
         dataset = []
         for file in os.listdir(args.data_path + "/test"):
             if file.endswith(".json"):
                 with open(args.data_path + "/test/" + file, "r") as of:
                     data = json.load(of)
             dataset.extend(data)
+        random.seed(4)
         random.shuffle(dataset)
         dataset = dataset[:50]
         test_dataloader = get_dataloader_summ(

@@ -523,48 +523,58 @@ def get_dataloader_summ(
             for single_data in hf_datasets
         ]
     elif args.dataset_name == "crd3_noise":
-        d = []
-        for single_data in hf_datasets:
-            character_set = set()
+        if split_name == 'train':
+            d = []
+            for single_data in hf_datasets:
+                character_set = set()
 
-            for turn in single_data["TURNS"]:
-                character_set.add(",".join(turn["NAMES"]))
-            character_set = list(character_set)
-            choice = random.choice([1,2,3,4])
-            if choice == 4:
-                d += [
+                for turn in single_data["TURNS"]:
+                    character_set.add(",".join(turn["NAMES"]))
+                character_set = list(character_set)
+                random.seed(4)
+                choice = random.choice([1,2,3,4])
+                if choice == 4:
+                    d += [
+                        {
+                        "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                        "summary": single_data['CHUNK'],
+                    }]
+                if choice == 1:
+                    d += [
                     {
+                        "conversation": ["<MASK>: "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                        "summary": single_data['CHUNK'],
+                    }]
+                elif choice == 2:
+                    d += [
+                    {
+                        "conversation": [random.choice(character_set)+": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
+                        "summary": single_data['CHUNK'],
+                    }
+                    ]
+                elif choice == 3:
+                    conv = []
+                    for turn in single_data["TURNS"]:
+                        utt= " ".join(turn["UTTERANCES"])
+                        total_len = len(utt)
+                        num_1 = random.randint(0, total_len-1)
+                        num_2 = random.randint(0, total_len-1)
+                        min_num, max_num = min(num_1, num_2), max(num_1, num_2)
+                        conv += [",".join(turn["NAMES"])+ ": "+ utt[:min_num]+"<MASK>"+utt[max_num:]]
+                    d += [
+                        {
+                        "conversation": conv,
+                        "summary": single_data['CHUNK'],
+                    }
+                    ]
+        else:
+            d = [
+                {
                     "conversation": [",".join(turn["NAMES"])+ ": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
                     "summary": single_data['CHUNK'],
-                }]
-            if choice == 1:
-                d += [
-                {
-                    "conversation": ["<MASK>: "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
-                    "summary": single_data['CHUNK'],
-                }]
-            elif choice == 2:
-                d += [
-                {
-                    "conversation": [random.choice(character_set)+": "+" ".join(turn["UTTERANCES"])  for turn in single_data["TURNS"]],
-                    "summary": single_data['CHUNK'],
                 }
-                ]
-            elif choice == 3:
-                conv = []
-                for turn in single_data["TURNS"]:
-                    utt= " ".join(turn["UTTERANCES"])
-                    total_len = len(utt)
-                    num_1 = random.randint(0, total_len-1)
-                    num_2 = random.randint(0, total_len-1)
-                    min_num, max_num = min(num_1, num_2), max(num_1, num_2)
-                    conv += [",".join(turn["NAMES"])+ ": "+ utt[:min_num]+"<MASK>"+utt[max_num:]]
-                d += [
-                    {
-                    "conversation": conv,
-                    "summary": single_data['CHUNK'],
-                }
-                ]
+                for single_data in hf_datasets
+            ]
         # print(d)
 
         # d = [

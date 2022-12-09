@@ -22,7 +22,7 @@ MODEL_NAME="1"
 MODEL_PATH="PRIMER_model"
 
 #fewshot training for 10 examples
-NUM_TRAIN_DATA=10
+NUM_TRAIN_DATA=100
 
 for RAND_SEED in 1111 #1111 #1234 5555 6789 7362
 do
@@ -33,8 +33,8 @@ nohup python primer_main.py  \
                 --label_smoothing 0.1 \
                 --accum_data_per_step 10 \
                 --warmup_steps 20 \
-                --total_steps 10 \
-                --batch_size 1 \
+                --total_steps 200 \
+                --batch_size 2 \
                 --model_path ../models/$MODEL_NAME/  \
                 --dataset_name ${DATA_NAME} \
                 --primer_path ../${MODEL_PATH} \
@@ -43,7 +43,7 @@ nohup python primer_main.py  \
                 --rand_seed ${RAND_SEED} \
                 --saveTopK 3 \
                 --test_imediate \
-                --test_batch_size 1 \
+                --test_batch_size 8 \
                 --fewshot \
                 --grad_ckpt \
         > ../fewshot_${DATA_NAME}_${MODEL_NAME}_${RAND_SEED}.out &
