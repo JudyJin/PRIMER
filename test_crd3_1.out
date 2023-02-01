@@ -1,0 +1,223 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+Using native 16bit precision.
+/home/zhaojin/miniconda3/envs/primer/lib/python3.7/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  cpuset_checked))
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Namespace(acc_batch=8, accelerator=None, accum_data_per_step=16, adafactor=False, applyTriblck=False, attention_dropout=0.1, attention_mode='sliding_chunks', attention_window=512, batch_size=2, beam_size=1, ckpt_path=None, compute_rouge=False, data_path='../dataset/crd3', dataset_name='crd3', debug_mode=False, eval_steps=2500, fewshot=False, fix_lr=False, fp32=False, gpus=1, grad_ckpt=False, introduceNoise=False, join_method='concat_start_wdoc_global', label_smoothing=0.0, length_penalty=1.0, limit_test_batches=None, limit_valid_batches=None, lr=3e-05, mask_num=0, max_length_input=4096, max_length_tgt=300, min_length_tgt=0, mode='test', model_path='../models/1/', num_train_data=-1, num_workers=4, primer_path='../PRIMER_model', progress_bar_refresh_rate=50, rand_seed=0, remove_masks=False, report_steps=50, resume_ckpt=None, saveRouge=False, saveTopK=3, test_batch_size=-1, test_imediate=False, tokenizer='facebook/bart-base', total_steps=50000, val_check_interval=1.0, warmup_steps=1000)
+test data: 25
+Testing: 0it [00:00, ?it/s]Downloading:   0%|          | 0.00/2.17k [00:00<?, ?B/s]Downloading: 5.61kB [00:00, 2.65MB/s]                   
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+She is here to help in whatever way she can. As she says that, her form flickers for a moment.
+ASHLEY: I've been in deep prayer and meditation, and I know you guys were in a very dark place, and I prayed that Sarenrae would send me to you. And so here I am, sort of as an avatar, but I'm here, and I want to help in any way that I can. I just know something's off, and I don't quite know what that is yet.
+
+The twins start searching as well. Grog warns that this could be an ambush set up by the Briarwoods.
+LAURA: Can I start taking a look around and see if I see anything?LIAM: All of us, yeah.TRAVIS: We should be very careful. Could be an ambush.LIAM: 26 on perception.LAURA: That's way better than mine. 17.MATT: Okay. You guys watch along the wall, and nothing seems to be catching your eye. You notice that there's a portion of the mountainside that is looser rock.
+
+Suvo's Secrets: Despite the drab tent looking very unwelcome, Caduceus and Jester enter the tent to purchase some diamonds. Suvo has twelve diamonds available for sale.
+LAURA: I typed in the bracers and they showed up with an image.LAURA: Whoa!SAM: How? What?MARISHA: That's in D&D Beyond. (singing) Be my girl tonight, D&D Beyond.LIAM: They even had my hand-me-down Periapt of Wound Closure.MATT: Make an investigation check.LAURA: Both of us, or just me?MATT: Well, if you're both looking for it, you can aid or help.LAURA: Advantage!SAM: This is for diamonds? Ooh.LAURA: (singing) Investigation. 11.MATT: 11.Asking around, most folks-- Well, diamonds as a rough, raw material is hard to find. Usually, they're already embedded in jewelry and most jewelers are out there. Eventually, somebody points you to a place, like, (dismissively) "If anyone will have it, it's probably over at Suvo's Secrets."LAURA,SAM: Suvo's Secrets?MATT: Suvo's Secrets. And they point you over to this large, gray shop tent that has an ominous feel when you look at it. As bright a day as it is, it's like the Addams Family house in the Pentamarket. It looks... it looks unwelcome.TRAVIS: On Halloween, all the kids are outside
+
+He looks around for any undead stone giants, but has difficulty seeing due to the poor visibility from the storm. Scanlan shouts to Grog to throw him to the top of the wall.
+SAM: While he's doing that, I'm yelling at Grog, "Grog! Throw me up over the wall! At least to the top!"
+
+However, the elves who would become the drow were corrupted by the Spider Queen, one of the Betrayer Gods. Under her rule and silver tongue, these elves became deceptive and cruel.
+MATT: So, on that specific thing, you learn about the Kryn Dynasty, which is the Xhorhasian society that exists in the ruins of Ghor Dranas. You know that most of them were drow, dark elf, from what you've heard and the ones you've interacted with. Now, the drow were brethren alongside all elves in the past history until their minds were corrupted and swayed by the terrible silver tongue of Lolth the Spider Queen, one of the Betrayer Gods. Under her will, they became deceptive, cruel, and violent. When the Betrayer Gods were defeated and banished during the Calamity, and the Divergence that separated the mortal realm from the gods that once threatened to destroy it entirely, the drow returned to their subterranean cities to rebuild their power far from the burning light of day. Now, the Kryn Dynasty is still very much a part of the dark elf pantheon, but they are also very much a part of the human pantheon, and they have a history of being very close to the mortal realm, and they have a history of being very close to the mortal realm.
+
+That leaves the Platinum House(temple to the Platinum Dragon) in the Interstead Sprawl and the Shrine of the Dawn (temple to the Dawnfather) in the Signet Wall, and she decides on the Platinum House. She and Nott scout it out for a few days and come back at night, Jester casting Disguise Self to make herself look like the Herald of the House and Nott using Disguise Self to look like an elderly gnome, and they manage to get everyone out of the main room long enough for Jester to begin to paint the statue of the Platinum Dragon in rainbow colors.
+SAM: Yeah, there's a lot of LAURALAURA: Ooh, yeah, let's SAM: Which one is that? Which god?LAURA,MATT: All right, that seems right. What, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what, what
+
+Percy goes down the left hallway, looking for the cell that had been his, which is also the direction the voice came from. There is a single lit torch sconce near the furthest cell on the outer wall.
+MATT: The cell that would've been yours would be kind of on the opposite side of the room from you, on the other side. The fastest way would be taking the left path towards the light source..
+
+He tells the party he thinks this might be the secret entrance. Keyleth inspects the pattern the rocks fell in and determines that the localized rock slide was intentional, presumably in order to block off the exit.
+MARISHA: This would be similar to the placement of where the bushes were that originally obscured the crawlspace that led into this tunnel.MATT: This would be similar to the placement of where the bushes were that originally obscured the crawlspace that led into this tunnel.TALIESIN: I think this might be it.LAURA: Well, what happened here?THAT'S IT.LAURA: Well, what happened here?THAT'S IT.LAURA: Well, what happened here?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in, like somebody did it on purpose?THAT'S IT.LAURA: Does it look like a cave-in,
+
+For those who haven't seen it yet, the VOD for Marisha's " Honey Heist 2: Electric Beargaloo" is available on YouTube for free, so go check it out whenever you want! Matt says it was nuts, but so much fun.
+MATT: We also have, for those who haven't seen it yet or haven't had the opportunity, Marisha's Honey Heist 2: Electric Beargaloo VOD is available on YouTube at youtube.com/criticalrole, so you can go check it out there for free any time you want! It's there, it's ready to go.TRAVIS: You were a bunch of crackheads. Crackheads.
+
+Caleb spends four days researching various topics:
+ Caleb spends the first day researching Xhorhas, the Xhorhasians, mentions of beacons and living many lives, and their religion. Caleb learns about the Kryn Dynasty: the Xhorhasian society that exists in the ruins of Ghor Dranas.
+LAURA: So, on that specific thing, you learn about the Kryn Dynasty, which is the Xhorhasian society that exists in the ruins of Ghor Dranas. You know that most of them were drow, dark elf, from what you've heard and the ones you've interacted with. Now, the drow were brethren alongside all elves in the past history until their minds were corrupted and swayed by the terrible silver tongue of Lolth the Spider Queen, one of the Betrayer Gods. Under her will, they became deceptive, cruel, and violent. When the Betrayer Gods were defeated and banished during the Calamity, and the Divergence that separated the mortal realm from the gods that once threatened to destroy it entirely, the drow returned to their subterranean cities to rebuild their power far from the burning light of day. Much of the recent studies into current drow society across Exandria speak of growing paranoia and madness that's seeping in with the believed influence of Tharizdun, the Chained Oblivion. Whether it be by proximity of remnants of his power deep beneath the surface that have grown close to these societies, but there is whispers and research that say that some of these dark elf societies are being driven slowly mad by this influence. Strangely, what studies you've been able to find that talk about penetrating the Kryn Dynasty's intense boundaries--
+
+Seeing Pike in danger of retaliation, he casts Lightning Bolt through his crotch in an attempt to impress the cleric, the resulting thrust an arcane display of virility if ever there was one. The spell barely misses Pike and slams into a row of seven skeletons, destroying five of them and heavily damaging the remaining two.
+LAURA: Bone chips.MATT: At which point you can now see, bolts of lightning are (lightning strike) coming down from the storm in the distance, too, as the thunderstorm itself is reaching more of a fervored pace, the rain itself getting harder and harder on you guys. So, with that, you can see looking over your shoulder on the other side of this wall another bit of skeletal horde is starting to come down one of the nearby intersections, and it's starting to come around the other side of you guys.LAURA: Bone chips.MATT: At which point you can now see, bolts of lightning are (lightning strike) coming down from the storm in the distance, too, as the thunderstorm itself is reaching more of a fervored pace, the rain itself getting harder and harder on you guys.So, with that, you can see looking over your shoulder on the other side of this wall another bit of skeletal horde is starting to come down one of the nearby intersections, and it's starting to come around the other side of you guys..
+
+Everyone loves the Dad Hats: they're awesome! Sam asks why the navy Critter caps are called "Dad Hats"?
+MARISHA: Everyone loved the dad hats.MARISHA: Everyone loved the dad hats.LAURA: But I wore my dad hat and it looks great on a girl, too.
+
+Yesterday (August 15, 2018) was D&D Beyond's one-year anniversary. Wish them a Happy Birthday on their Facebook and Twitter pages!
+SAM: Yesterday, guys, was D&D Beyond's first one-- first one-year anniversary. Take two.SAM: Also, as a reminder, D&D Beyond streams their weekly show called & Beyond every Wednesday on twitch.tv/dndbeyond. It's not-- take two. I was going to say it's not great conversations, but no. Pick up. It's got great conversations with special guests like Matt Mercer and Mike Mearls, and other guests with M.M. names. That's the whole announcement, but I recently went to Virginia, so I got inspired to write a country song for D&D Beyond.
+
+Ten minutes of searching later, they still haven't found the entrance. However, Vax notices a portion of the mountainside that is comprised of looser rock than the rest.
+MATT: Okay. About ten minutes of you guys searching as you travel southward among this... okay. You guys watch along the wall, and nothing seems to be catching your eye. You notice that there's a portion of the mountainside that is looser rock.
+
+It is no longer raining, but the sky is still cloudy. She uses her Skywrite spell to darken some of the clouds and shape them into the de Rolo crest.
+MATT: You hand over the chalice to Pike. Pike, you take the chalice and you set it down before you. You mark a symbol in the dirt in the center of this tunnel in the shape of a giant rectangular table. You take your holy symbol, remove it from your neck, and thrust it into the ground at the head of the table. With that, dust kicks up as seemingly out of nowhere, this giant table and feast just (fwoLAURA: Oh my god, is it a holy feast? Do we all do holy damage now?MATT: No, but holy shit, it's delicious.TRAVIS: (laughing) "Holy shit, it's delicious." (laughter)MATT: It is very good.LIAM: Best line of the night!MATT: Benches around and available. You all sit around it and dig into the most delightful mid-tunnel, cold sub-castle breakfast you've ever had.LIAM: Ice cream.LAURA: Give me that pencil.MATT: So you guys all, for the next 24 hours, have advantage on wisdom saving throws, and I believe it's 2d6? Is that what it was, Marisha?MARISHA: 2d10 or 2d8.TALIESIN: Wisdom advantage.LAURA: I think it's 2d12.MARISHA: 2d12?MATT: Heroes'
+
+Marisha says it's so good. Travis says, "Doogie Howser, eat your f***ing heart out!"
+MATT: On that note, guys, we'll have our Wyrmwood giveaway at the break. I'll have all that information for you and a reminder at the time. But for right now, I think it's time to jump into tonight's episode of Critical Role. [groovy Critical Role theme]
+
+Vax leaps down, lands on the coffin, and picks up the dagger to examine it closer. It's lightweight and purely ornamental, and there don't appear to be any enchantments on it.
+MATT: So you leap down into the grave, drop, your feet hitting against the wooden bottom of the coffin. Smells musty and it's been rained in heavily, so it's not as bad as it could be. It looks to be a pretty dagger. You reach for it and pick it up and look at it, it's lightweight, it's ornamental, it's not actually more of a functional--LIAM: I want to make an arcana check.LAURA: It's ornamental.LIAM: I just want to make an arcana check.LIAM: It's a 20.
+
+The Gentleman also warns Fjord not to work with any criminals outside of Father Pierce's network: they are likely in opposition to the Gentleman, and he does not take kindly to betrayal. Fjord offers to assist the Gentleman with any of his efforts in Port Damali, to which the Gentleman replies that if he thinks of a suitable task, he will send a message to the Mighty Nein.
+MATT: "Should you not work with Father Pierce and his network, be careful. You could easily find yourself on an opposing side to my business, and I do not take kindly to betrayal."TRAVIS: Indeed, I wouldn't dare. After all, you do have a little way of keeping track of where we are and what we do.MATT: "And if anything comes to mind that would be of interest to my ears, business or otherwise, please keep me informed."
+
+The older cleric is clutching his holy symbol as he charges toward the skeletons, casting Destroy Undead and disintegrating them instantly. He looks over his shoulder and says "Til morning?
+"We're not going to wait until morning to fight again, we're going to fight now!".
+
+There are two paths, one to the right and one to the left, that curve out of sight. Directly across from Vax is a central area.
+MATT: (laughs) Okay. You disappear in. It's very dark in here; there's one sconce that appears to be giving a bit of flickering light across the way. As you step out of this chamber into what looks to be two paths that go to the right and the left and then curve and disappear. Right across from you appears to be a central room or space.
+
+Grog then pulls the hammer out of the slick mud back to him as he licks it off, his tongue burning due to the warhammer's hot surface. Over time, Vox Machina picks off the remaining four skeletons on their side.
+MATT: (laughs) So with the Chain of Returning attached to your hammer, you go ahead and (propeller noise) send it swinging towards one of the further skeletons.TRAVIS: 25.MATT: 25 definitely hits. Go ahead and make your athletics check to try and pull the hammer back.LIAM: Like you're attacking ribbon candy.MATT: Kind of, technically.TRAVIS: 13.MATT: 13. You just (sucking noise) pull it out with a sickening sound (thunk) catch it in the air, the blood dripping-- the mud dripping off of it, but you see it burning away as the flames begin to burst through the actual mud.LAURA: You're licking the mud off?TRAVIS: Yeah.
+
+Six guards are remaining, fighting back against the giant and pushing it towards the temple. Vax splits off from the group and approaches the conflict from the side.
+MATT: However, many of them being armored and armed means it wasn't a direct transition. They were probably pulled from here and given weapons elsewhere. Rain pouring down, the clapping of thunder in the distance. You can see, there are six of these soldiers that are currently hacking away at this one giant that's being pushed up towards the edge of the temple right now. It looks like it's cornered, but it's lashing out like a wild animal. Roll initiative, folks.
+
+Two other monks join Tubo, and the three monks draw bows and fire arrows at Beau. Beau's Bracers of Defense are unable to deflect the arrows, so Beau uses her ki to catch all three arrows.
+LAURA: Well, because I want to make the Traveler like me again, because obviously he doesn't and that's why he didn't come save me. I'm going to use these two weeks to scout out all of the temples to the other gods and really see the guard schedules and the priest schedules and try to sneak in. I'll probably enlist the help of Nott here.
+
+Jester then turns invisible, uses Disguise Self to look like a little beggar girl, and blends into the chaos. That night, The Traveler visits Jester.
+LAURA: I run as fast as I can and turn a corner.MATT: Okay, and with that, you duck around into a little nook on the outside of an abode or home that's placed here on the outside of the temple. In that moment, make a stealth check with advantage, because you're invisible.LAURA: Natural 20!MATT: (laughter)MATT: You hear the voices of the crownsguard going on like, "What--where-- Spread out! Where did you see them go?" "I didn't see. They just vanished!" "This is ridiculous. We're all going to get into serious trouble if we don't find them." They all begin to scatter about, and you begin to weave your way through some of the nearby alleyways into the shadows of the night. Yeah, that invisibility completely cut off their eyeline to keep following you.LIAM: That is also the most exciting night Kumas has had in ten years.MATT: Oh, yeah! I'll say that, within the next couple of days, word has gotten around the city of Zadash, to the point where some of the town criers are talking about, "Terrible vandalism! Platinum Dragon nearly ruined by upstarts and secret cabal of anti-religious hate!"TRAVIS: (laughing) Secret cabal, because there are so many of them!MATT: As your evening comes to a close
+
+Jester insists that Pumat Prime shouldn't just call the others "copies": they have their own personalities, and Pumat Prime should appreciate them more. One of the Pumat copies explains that they take no offense, because it's true.
+LAURA: Well, all right, but I think each and every one of you is unique in your own way and you should really appreciate it!
+
+However, he ends up dropping the red-hot daggers into the mud as they burn his hands. Vex'ahlia turns to Keyleth and says "What the fuck?"
+MARISHA: I'm not sure what I'm supposed to do.MATT: And you have to make a constitution saving throw vs her DC, or you drop both of your daggers.LIAM: (weak laughter) Okay.SAM: It's fun.MARISHA: Thanks, Sam.LIAM: What am I doing?MATT: Make a constitution saving throw. What's the DC on your spells?MARISHA: My spell save DC? 18.LIAM: Fuck a duck, that's hot!MATT: Both daggers just drop to the ground. As they both slam into the mud, (sizzling sound).
+
+”
+ –
+ Scanlan Shorthalt and Pike Trickfoot[15][!h]
+ Pike makes a daring leap off the wall, angelic wings shooting from her back for a split-second. They flap once then disperse into feathers as she lands deep into the horde.
+ASHLEY: Can I jump off of the wall?MATT: You can.LAURA: Into the group?!MATT: You can, yeah.ASHLEY: Yeah. I can? Okay. I want to try... I want to see what happens if I cast Turn Undead.MATT: Or Destroy Undead. You have access to both.ASHLEY: Oh man. Okay. I want to see what it does.MATT: All right, so I need you to go ahead and make an athletics check to see how far you can jump, if you don't mind.ASHLEY: I rolled a seven.MATT: (laughs) And what's your athletics?LIAM: Can I pick her up by the armor and throw her?MATT: (laughs) It's a little late for that, unfortunately. What's your total?ASHLEY: Okay, hold on.MATT: Okay, just get in the swing of it, first.
+
+Some powerful arcane spells can accelerate its progress, even slow or stop it...but always in a localized area. There are some stories that survive from the Age of Arcanum(roughly 1500 years ago) that speak of the greatest sages of that age experimenting with reversing time's forward momentum...supposedly with some success.
+MATT: The things you discover, from what's available to you in the archive: time is a constant, the motion moving forward unyielding. Some powerful arcane influences can accelerate or slow the rate at which time passes locally, even stop it. There are some stories from the Age of Arcanum that speak of the greatest of sages experimenting with reversing the forward momentum of time, and supposedly with some success. But the process apparently was so taxing and the energies required so extensive that it nearly killed those who passed through this natural flow. That's as much as you can pick up on the specific research involving that shift of time.
+
+These drow who follow Luxon have rallied to the surface in the ruins of Ghor Dranas, casting the skies above in eternal midnight, and indoctrinating the local beastmen and terrors of Xhorhas's wastes into worship of the Luxon. A number of Dwendalian children (mostly adolescents) have been abducted in the night by the Xhorhasians of the Kryn Dynasty on occasion...though this number has sharply increased in the past generation (years after the first conflicts with the Kryn Dynasty began).
+MATT: There's nothing about beacons, nothing about reincarnation. However, it does speak of the dynasty worshiping something other, something that is new and dangerous as far as the Cobalt Soul is concerned, with what little research they have. They've begun taking the ravenous hordes of beast-men and terrors of the Xhorhasian wastes, and indoctrinate them under this new false god. You also learn that a number of people, mostly children of adolescent age, have been found abducted in the night by the Kryn on occasion, though the number has steeply grown this past generation, years after the first open conflicts with the Kryn began. The last thing you discover is the leader of the dynasty is known as Empress Leylas Kryn. She is called an "umavi" by them, though the word's meaning is unknown by current research.
+
+She says that she was brought into the main throne chamber to speak with the Lord and Lady. She had to wait for an hour, as apparently they were busy elsewhere.
+LIAM: Wait. If we destroy the Briarwoods, it will be no trouble to come down here and let anyone out who's down here. If she's who she says she is, we don't know.SAM: Madam. When you were brought into the castle, can you tell us anything about where you were brought? Were you brought before the queen-- she is a queen, right?LAURA: No, she's a lady.SAM: Lady.
+
+As they discuss this, Vax goes over to Grog and wipes the drawing off his forehead before he can notice. Grog is upset with the physical contact.
+LAURA: We get saves on all wisdom throws, which might come in handy when we're fighting against things that control our minds.ASHLEY: Oh dang. I haven't even looked through these yet.LIAM: While the fancy people are talking, I walk over to Grog and say, big man. You've got mud or something on your face. Come here. And I take my hand and I wipe across his forehead and smear out what I did.
+
+Fjord asks for the Gentleman to share any knowledge he might have of the criminal underbelly and competitors he has in Nicodranas, Port Damali, and the Menagerie Coast in general. Most of the criminal contacts in the Menagerie Coast (aside from a handful) are not part of the Gentleman's network.
+MATT: You make your way to the subterranean basement of The Evening Nip. The Gentleman is not currently present, but upon asking around, and you wait for about 20 minutes or so, he does return from the storage room to the side where you had previously been led down and through the Underworks. As he comes in, he sees you and sits on the other side of the table, throwing his leg over one side and sitting at a very comfortable and casual way across from you. "Fjord, I'm being told that you're looking for me."TRAVIS: Yes, I appreciate you making some time for me this evening. Turns out we might be traveling a little bit pretty soon.
+
+The giant lurches forward and falls as Vax and one of the guards quickly dodge out of the way. Vax sticks his hands in a puddle to soothe the burns.
+MATT: Okay, so as you release the arrow itself, you can feel the warmth licking the side of your face as the arrow heats up. Release it. The giant, which is currently reaching back-- it has a palm out like it's going to try to palm Vax after the attack. As it reaches up, (groans) it just (arrow whizzing) into the back of the eye, and as it sinks inside its head, (thud) there's this dull thud sound, like the fire burst on the inside of its head. Its jaw goes slack, and it begins to lurch forward towards you and the guy next to it. Both of you guys step back out of the way as it (moans, thuds) onto the muddy ground in front of you.LAURA: (pants)
+
+Percy feels warmth rush through his entire body and for the first time in weeks he feels a moment of serenity. He closes his eyes and feels as though he is standing next to Pike in a void of darkness.
+MATT: Okay, so Pike reaches up. You grab his face again, and you close your eyes and concentrate. Her hands begin to glow with an extremely bright vibrance, even moreso than her gently luminescent form right now. It's almost like there's a blowtorch of radiant energy right around his jaw. The rest of her form almost seems to put so much energy into it that her legs begin to dissipate and vanish, almost like she's putting all of her energy into this moment, the rest of her body fading into the grasp. You feel this warmth wash through your entire body, and for a brief moment, for the first time in a number of weeks, there's a moment of serenity to you.
+
+Percy confirms that this is the dungeon, as this is where he woke up after the Briarwoods took over, although Vax had figured that out for himself. He tells them about the old person he heard and asks the group what they want to do.
+TALIESIN: I would like to start making my way in that direction.LIAM: I had surmised as much.LIAM: Do you want to talk to the possibly old person with the crazy eyes thing?TRAVIS: Shouldn't we ask Percy what he wants to do?MATT: You right now are staring off into space, because you recall the last time you were here you woke up in a cell next to a cell that contained a pile of bodies of previously related members of your family before Cassandra ushered you out.TALIESIN: I would like to start making my way in that direction.LIAM: I had surmised as much.LIAM: Do you want to talk to the possibly old person with the crazy eyes thing?TRAVIS: Shouldn't we ask Percy what he wants to do?LIAM: One time only.LIAM: What do you want to do?
+
+The rogue holds his burnt hands out and asks Keyleth to fix them. The druid is immediately apologetic and grabs Vax's hands to cast Cure Wounds on them.
+MARISHA: Okay. I put my hands in his hands and cast Cure Wounds.LIAM: I heal.MARISHA: I'm going to use it from my ring.My spell-slot ring.MATT: What level?MARISHA: I'll do level two.MATT: Level two? Okay, so 2d8 plus six.MARISHA: 12.MATT: So you heal 12 hit points.LIAM: I heal.
+
+The villagers part, and from behind them a small armored humanoid runs up, glowing with radiant energy. An avatar of Sarenrae in the form of a tiny gnome cleric charges forward, the raindrops sizzling off her form.
+MATT: "And so can she." As he looks over his shoulder, you can see the villagers are parting, and there is, running behind them, this form of a small humanoid armored entity, but glowing..
+
+He doesn't hear anything, so he heads back to the group and sneaks up behind Vex, startling her. Keyleth asks where he went.
+LIAM: Pretty good. I quietly walk all the way back, and walk behind the group, and I go, goosh! Look at that.
+
+Vax slowly backs up, then goes to the edge of the corner and listens. He hears a body shifting against hay or some sort of bedding and the clink and shift of metal.
+MATT: The only dim light is coming from around that corner, from the source of where that sound seemed to come.LIAM: Okay.MATT: Listening for a second, you hear what sounds like some shifting, like a body shifting over some sort of low crumbling. Sounds almost like grasses or hay or some sort of soft bedding is being shifted a little bit. You hear a clink of metal of some kind, you're not sure quite what the source is, and a couple of other small shifting and grinding sounds of metal. Comes to a halt.
+
+Sam confirms that everything mentioned in the song are all official Southern things. Travis isn't sure if D&D Beyond will animate that song.
+SAM: I was going to learn this on the guitar, but then I realized I don't really play guitar. All right, here's my country song for D&D Beyond. (singing) My baby left me on the fourth of July, I cri-- Take two. (laughter)LAURA: Okay, I'm ready.SAM: Settle. (singing) My baby left me on the fourth of July.I cried red, white, and blue.Got in my Chevy, popped open a Coors, and moseyed on over to you.Opened the trailer, played some Johnny Cash, kicked off my cowboy boots, and sat.Got my character sheet and my daddy's dice, because Exandria's where it's at.D&D Beyond, be my girl tonight.Roll me close, crit me tight.I got a pickup, a 12-gauge, an American flag, but it's you that makes me feel all right.D&D Beyond, be my girl tonight.Roll me close, crit me tight.I got some illegal fireworks, a smokehouse, a new tractor, a hunting dog, my mama's Bible, some Frito pie, NASCAR tickets, a deer license, some new tires, a handle of Southern Comfort, but it's you that makes me feel all right.D&D Beyond, be my girl tonight.Roll me close, crit me tight.I got some
+
+" Upon completing your journey - checking in with the Gentleman - you were paid the ripe sum that you had discussed; and after taking your newfound friend from the Shadycreek Run, Ophelia, back to The Evening Nip, you exited with your new gold and platinum in hand. And after a celebratory drink to the memory of Molly, you grabbed Caduceus and led him into the city of Zadash - the largest city he's ever seen by leaps and bounds - to see what kind of ways you can corrupt this new, fresh mind...free out of the Savalier Wood..."
+MATT: That is where we left off, in this case, guys, we have roughly two weeks of downtime, I'm going to go around and ask what you would like to accomplish, and if moments require rolls, moments require roleplay, anything like that, we'll jump into it. I would like to say, who wants to go first?LAURA: It's so exciting!MATT: That is where we left off, in this case, guys, we have roughly two weeks of downtime, I'm going to go around and ask what you would like to accomplish, and if moments require rolls, moments require roleplay, anything like that, we'll jump into it. I would like to say, who wants to go first?
+
+Now missing large chunks from its body, the undead giant reaches down and picks its morning star back up. It swings the weapon down towards Vax but the rogue easily dodges out of the way, the morning star sinking harmlessly into the mud.
+MARISHA: And he's grappled.MATT: An 11 and a one. Grappling just prevents movement, but yeah, he goes in and swings wide and you just duck out of the way, dodge off to the side. (boosh) It slams and gets stuck in the mud and there's a (sucking noise) horrible sucking sound as it has to pull it out of the ground with all of its might. That ends its turn. This giant's in a bad place. You're up.LIAM: What position is it in?MATT: It's currently kneeled forward, just pulling its morningstar out of the mud.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.
+
+They re-barricade the entrance and begin heading down the tunnel, Vax taking point. Keyleth lights the path with her flaming hands.
+SAM: Let's all go down the tunnel.SAM: Let's all go down the tunnel.LIAM: Yep. Come on, everyone.MARISHA: I light up my hands for light.MATT: Okay.LAURA: Very quietly down the tunnel.MATT: Using the veritable torchlight from Keyleth's burning hands, you guys press down the hallway, Vax taking point. Eventually, you get to the end of the hallway. There's a portion of the stone wall that has been chiseled out. It's not very smooth; it's rough in the way it was constructed, but there is definitely about a foot-thick wall that would go to the right and left of you in the dirt that has been chiseled and broken through to reveal this passageway that you guys are traversing.
+
+The others get the sense that it is only Sarenrae's power that is keeping her here. Keyleth asks Pike how much longer she'll be able to stay with them, but the gnome isn't sure.
+ASHLEY: I don't know. This is the first time that I've ever done this, so I'm hoping that it will last a long time, at least to see you through.LAURA: I don't know if I can stay here for a long time, but I'm hoping that I can stay here for a long time.MATT: I don't know if I can stay here for a long time, but I'm hoping that I can stay here for a long time.LAURA: I don't know if I can stay here for a long time, but I'm hoping that I can stay here for a long time.MATT: I don't know if I can stay here for a long time, but I'm hoping that I can stay here for a long time.
+
+Caduceus buys the broken sword, because he likes broken things. Jester and Caduceus buy the Cloak of Elvenkind as a gift for Nott.
+MATT: "And then you got a-- and then 300 for the spells."LIAM: Yeah, and 600 gold with of paper and ink, and then 20 for all the incense you have right now, and I'm going to leave 40 in advance for more incense coming.MATT: "Hold on a second there. So it's 300 worth of spells, and you said 600 worth of paper and ink, right?" At this time you guys have been discussing, the other Pumat comes back with his cloak with a big old crate in his hand and goes, "Got the rest of the paper and ink. Hold on." Sets it down.LIAM: I am dropping a total, if we're all amenable, 960 gold on various things, and I think that is a pretty good pile. Maybe you could knock a couple hundred off of the price of those bracers.MATT: Make a persuasion check, with advantage since everybody's helping you.LIAM: Yeah, that is a 21.MATT: You see the Pumats talking to you kind of, "Let me go ahead and have a conversation with the boss man. Hold on just a second." Turns around the corner. "Yeah, fine, sure." He comes back out, "All right, we got ourselves an approval for a discount there. We'll be happy to knock about a hundred goldTALIESIN: That's pretty amenable.LAURA:
+
+Tubo instructs Beau to think carefully about what she's trying to find...what she's trying to learn. Beau researches families of Wildemount and underground trade.
+TALIESIN: Mine's very simple.TALIESIN: I'm going to spend a little time every day-- I'm going to find the nicest park in town. I'm going to spend every day and I'm going to meditate and try and get some guidance. I'm trying to have another epiphany about what happens next. I'm going to sit quietly and meditate every day somewhere green, or whatever passes for it in this city.
+
+Laura responds by clarifying the "Nott the Best Detective Agency" shirts are in the store. The pins and "Dad Hats" are sold out, but will be back sometime.
+LAURA: That's right.LAURA: That's right.We've got-- we don't have that one in store right now. But we have our other shirts.The Nott Detective Agency, case closed.SAM: You've got one job.LAURA: We have hats that are sold out that'll be back some time. Pins.
+
+Caleb persuades Pumat to give them a discount on the total purchase: 100 gold off. Beau buys the Bracers of Defense.
+LAURA: With the dust of deliciousness, is that one use, or multiple uses?MATT: "Six servings of dust in this."TALIESIN: That's why I was like hmm.LAURA: That's still pretty good.TALIESIN: It's still good, but--MATT: "All right. Go ahead and mark off that amount there as well.When all is said and done, when you've marked off your amounts, here's a hundred gold back. You may redistribute it as you see fit."TRAVIS: Oh, shit, you got a hundred dollar rebate!TALIESIN: Well, we're waiting for the total, but yeah.MARISHA: I'm taking just 25 gold off of my bracers.MATT: "Based on how many pieces you've thrown at me, it's probably better to have you all just deduct what you've spent individually. I was going to try that, but then..."TALIESIN: That's why I was like hmm.LAURA: That's still pretty good.TALIESIN: It's still good, but--MATT: "All right. Go ahead and mark off that amount there as well.When all is said and done, when you've marked off your amounts, here's a hundred gold back. You may redistribute it as you see fit."TRAVIS: Oh, shit, you got
+
+The giant pulls its weapon free with a sucking sound. Bracing himself, Vax reaches down and picks up his still-hot daggers, further burning his hands in the process.
+LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.MATT: Okay.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: The first one hits.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up, and lunge and sink into its ribs.LIAM: (pants) I reach down and I grab the scalding-hot daggers again, and I lift them up
+
+Jester says it seems like a really reasonable price, and Pumat agrees that is the best price Jester will get outside of Rexxentrum. Jester asks how much for an enchantment that forces people it hits to dance uncontrollably?
+LAURA: What about just one of those enchantments? What about it just makes people start dancing?TALIESIN: Axe dance!MATT: "So you want a weapon that, when it hits somebody, they start dancing?"LAURA: They go. Yeah, and they can't stop. It's like, it would be really hard for them to stop.MATT: "All right. So the only enchantment you're requiring is the possible ability of making something dance uncontrollably."
+
+Testing: 100%|██████████| 25/25 [02:26<00:00,  5.86s/it]Validation Result at Step 0
+Rouge-1 r score: 0.435980, Rouge-1 p score: 0.174608, Rouge-1 f-score: 0.229852
+Rouge-2 r score: 0.146671, Rouge-2 p score: 0.061733, Rouge-2 f-score: 0.080553
+Rouge-L r score: 0.310852, Rouge-L p score: 0.127504, Rouge-L f-score: 0.166377
+Rouge-Lsum r score: 0.311782, Rouge-Lsum p score: 0.127678,             Rouge-Lsum f-score: 0.166670
+Testing: 100%|██████████| 25/25 [02:26<00:00,  5.87s/it]
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'avgr': 0.1589273075552635, 'tloss': 3.3960447311401367}
+--------------------------------------------------------------------------------

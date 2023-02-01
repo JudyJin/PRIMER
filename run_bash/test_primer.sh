@@ -18,7 +18,7 @@ cd ../script
 # DATA_NAME="arxiv"
 # LENGTH_LIMIT=300
 # crd3 dataset
-DATA_NAME="crd3_noise"
+DATA_NAME="crd3"
 LENGTH_LIMIT=300
 
 
