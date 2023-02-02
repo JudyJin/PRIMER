@@ -168,6 +168,7 @@ def process_single_data_with_scores(
     metric="pegasus_score",
     strategy="greedy",
     non_mask_ratio=0.5,
+    entity_estimate_method='count',
 ):
     """
     all docs: dictionary for a single cluster, like
@@ -190,8 +191,10 @@ def process_single_data_with_scores(
 
     """
     # if with entity
-
-    entities = all_docs["entities_pyramid"]
+    if entity_estimate_method == 'count':
+        entities = all_docs["entities_pyramid"]
+    elif entity_estimate_method == 'weighted':
+        entities = all_docs["entities_pyramid_weighted"]
     all_docs = all_docs["data"]
     # Truncate the documents to desired
     truncated_doc, scores = truncate_doc(
@@ -220,6 +223,7 @@ def process_single_data_with_scores(
 
 
 def compute_all_scores_single_data(all_docs, i):
+    print('/////////////////////////////////')
     print(len(all_docs))
     print(all_docs)
     cluster = [
@@ -232,8 +236,8 @@ def compute_all_scores_single_data(all_docs, i):
         ]
         for doc in all_docs
     ]
-    print(len(cluster[0]))
-    print(cluster)
+    # print(len(cluster[0]))
+    # print(cluster)
     # take much time process very long sequence.
     if sum([len(d) for d in cluster]) > 600:
         return [
@@ -247,17 +251,18 @@ def compute_all_scores_single_data(all_docs, i):
 
     # update entities
     result = update_entities(data_with_scores)
-
+    print(result)
     return result
 
 
 def update_entities(single_data_with_scores):
     nlp = spacy.load("en_core_web_sm")
-    entity_pyramid, entity = get_entities(nlp, single_data_with_scores)
+    entity_pyramid, entity_pyramid_weighted, entity = get_entities(nlp, single_data_with_scores)
     result = {
         "data": single_data_with_scores,
         "entities": entity,
         "entities_pyramid": entity_pyramid,
+        "entities_pyramid_weighted": entity_pyramid_weighted, 
     }
     return result
 
@@ -275,6 +280,7 @@ def process_all_newshead(
     metric="pegasus_score",
     strategy="greedy",
     non_mask_ratio=0.5,
+    entity_estimate_method="count",
 ):
     """
     Generate the pretraining data for wikisum dataset
@@ -282,6 +288,7 @@ def process_all_newshead(
     if isinstance(data_splits, str):
         data_splits = [data_splits]
     for data_type in data_splits:
+        print('current data split is {}, mode is {}'.format(data_type, mode))
         all_files = [
             f
             for f in os.listdir(os.path.join(input_dir, data_type))
@@ -304,6 +311,7 @@ def process_all_newshead(
                 continue
             time_start = timer()
             all_data = torch.load(os.path.join(input_dir, data_type, f))
+            print("num of worker: {}".format(num_workers))
             if num_workers > 1:
                 with Pool(num_workers) as processor:
                     if mode == "compute_all_scores":
@@ -335,6 +343,7 @@ def process_all_newshead(
             else:
                 new_data = []
                 for i, d in enumerate(all_data):
+                    print("computing scores for data {}".format(i))
                     if mode == "compute_all_scores":
                         new_data.append(
                             compute_all_scores_single_data(
@@ -353,6 +362,7 @@ def process_all_newshead(
                                 metric,
                                 strategy,
                                 non_mask_ratio,
+                                entity_estimate_method,
                             )
                         )
 
@@ -364,6 +374,7 @@ def process_all_newshead(
 
 
 if __name__ == "__main__":
+    print('pretrain process started...')
     parser = argparse.ArgumentParser()
     # Gneral
     parser.add_argument("--max_length_input", default=4096, type=int)
@@ -388,6 +399,12 @@ if __name__ == "__main__":
         type=str,
         nargs="+",
         choices=["train", "valid", "test"],
+    )
+    parser.add_argument(
+        "--entity_estimate_method",
+        default="count",
+        type=str,
+        choices=["count", "weighted"],
     )
     parser.add_argument("--num_worker", default=1, type=int)
     parser.add_argument(
@@ -434,4 +451,5 @@ if __name__ == "__main__":
         args.metric,
         args.strategy,
         args.non_mask_ratio,
+        args.entity_estimate_method,
     )
