@@ -220,6 +220,8 @@ def process_single_data_with_scores(
 
 
 def compute_all_scores_single_data(all_docs, i):
+    print(len(all_docs))
+    print(all_docs)
     cluster = [
         [
             s.strip()
@@ -230,6 +232,8 @@ def compute_all_scores_single_data(all_docs, i):
         ]
         for doc in all_docs
     ]
+    print(len(cluster[0]))
+    print(cluster)
     # take much time process very long sequence.
     if sum([len(d) for d in cluster]) > 600:
         return [
@@ -366,7 +370,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_length_output", default=1024, type=int)
     parser.add_argument("--mask_ratio", default=0.3, type=float)
     parser.add_argument("--non_mask_ratio", default=0.5, type=float)
-    parser.add_argument("--primer_path", default="./PRIMER", type=str)
+    parser.add_argument("--primer_path", default="./PRIMER_model", type=str)
 
     parser.add_argument(
         "--output_dir",

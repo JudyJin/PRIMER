@@ -1,3 +1,4 @@
+import numpy as np
 def compute_scores(cluster, scorer):
     """
     input:
@@ -59,6 +60,8 @@ def compute_scores(cluster, scorer):
                     "pyramid_rouge": pyramid_score,
                 }
             )
+    # print(len(result_dict[0]))
+    # print(result_dict)
     return result_dict
 
 
@@ -82,15 +85,36 @@ def compute_rouge_scores(scorer, predictions, references):
 
 def get_entities(nlp, all_docs):
     all_entities_pyramid = {}
+    all_entities_pyramid_weighted = {}
     all_entities = {}
+    offset = 0
+    print('get entities:\n', all_docs)
     for i, doc in enumerate(all_docs):
-        all_entities_cur = set()
-        for s in doc:
+        all_entities_cur = {}
+        for j,s in enumerate(doc):
             sent = nlp(s["text"])
+            print(i, '\n', j,len(s['text']), offset, s, '\n', sent.ents)
             if len(sent.ents) != 0:
                 for ent in sent.ents:
-                    all_entities_cur.add(ent.text)
+                    print(ent.text,ent.start_char, ent.end_char)
+                    all_entities_cur[ent.text] = all_entities_cur.get(ent.text, []) + [offset+ent.start_char]
                     all_entities[ent.text] = all_entities.get(ent.text, 0) + 1
+                    print(all_entities_cur)
+            offset += len(s['text'])
+            
         for e in all_entities_cur:
+            loc = all_entities_cur[e]
+            print('loc', loc)
+            count = len(loc)
+            loc_diff = []
+            for k in range(1, count):
+                loc_diff += [loc[k]-loc[k-1]]
+            loc_diff_weight = np.sum(loc_diff)*count
+            print(loc_diff_weight)
+            loc_diff_weight /= offset
+            print(loc_diff_weight)
             all_entities_pyramid[e] = all_entities_pyramid.get(e, 0) + 1
-    return all_entities_pyramid, all_entities
+            all_entities_pyramid_weighted[e] = all_entities_pyramid.get(e, 0) + 1 + loc_diff_weight
+
+
+    return all_entities_pyramid, all_entities_pyramid_weighted, all_entities
