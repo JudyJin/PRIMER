@@ -88,7 +88,7 @@ def get_entities(nlp, all_docs):
     all_entities_pyramid_weighted = {}
     all_entities = {}
     
-    print('get entities:\n', all_docs)
+    # print('get entities:\n', all_docs)
     for i, doc in enumerate(all_docs):
         all_entities_cur = {}
         offset = 0
